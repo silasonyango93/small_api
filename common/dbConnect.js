@@ -2,10 +2,10 @@ var mysql = require('mysql');
 var dbcredentials;
 
         dbcredentials={
-		  host: process.env.DB_FAV_HOST,
-          user: process.env.DB_FAV_USER,
-          password: process.env.DB_FAV_PASS,
-          database: process.env.FAV_DATABASE,
+		  host: process.env.DB_HOST,
+        user: process.env.DB__USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_FAV_DATABASE,
 	      insecureAuth : true
 		}
 
