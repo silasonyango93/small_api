@@ -3,7 +3,7 @@ var dbcredentials;
 
         dbcredentials={
 		  host: process.env.DB_HOST,
-        user: process.env.DB__USER,
+        user: process.env.DB_USER,
         password: process.env.DB_PASS,
         database: process.env.DB_FAV_DATABASE,
 	      insecureAuth : true
