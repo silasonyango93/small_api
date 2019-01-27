@@ -57,7 +57,7 @@ router.use(function timeLog(req, res, next) {
 
     
 
-    router.post('/signup', function (req, res) {
+    router.get('/signup', function (req, res) {
    res.sendFile( __dirname + "/" + "form.html" );
     })
 
