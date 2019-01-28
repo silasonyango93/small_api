@@ -74,7 +74,7 @@ module.exports = class UsersController{
            reject(err);
            })
 			  
-		  }else{var myResponse="A user already exists with this Job Reference Number";
+		  }else{var myResponse="A user already exists with this user name";
 			    resolve(myResponse);
 			   }
 			  
@@ -95,7 +95,7 @@ module.exports = class UsersController{
 	     
 		 var TableName="users";
 		 var SearchColumn="UserName";
-		 var SearchValue=jsonObject_.AttemptedUserName;
+		 var SearchValue="silas";
 		   
 		   
 	    
