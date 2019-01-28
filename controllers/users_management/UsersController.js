@@ -109,7 +109,7 @@ module.exports = class UsersController{
 			
 			if(userExistsResult.length === 0){
 			  
-			  var error_msg="There is no user account by this Job Reference Number";
+			  var error_msg="There is no user account by this user name";
 			  var response_object = {error: true, error_msg:error_msg};
 			  resolve(response_object);
 			

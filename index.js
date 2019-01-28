@@ -13,9 +13,10 @@ const express = require('express');
 const app = express();
 const path =require("path");
 var dbcredentials;
+var cors = require('cors');
 var port = process.env.PORT || 5000;
 
-
+app.use(cors());
     dbcredentials={
         host: process.env.DB_HOST,
         user: process.env.DB__USER,
