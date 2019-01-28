@@ -62,6 +62,13 @@ router.use(function timeLog(req, res, next) {
     })
 
 
+    router.get('/admin_login', function (req, res) {
+   res.sendFile( __dirname + "/" + "login_form.html" );
+    })
+
+  
+
+
     router.post('/user_login', urlencodedParser,function(request,response){
 	   
 	   

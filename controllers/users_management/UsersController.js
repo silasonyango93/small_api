@@ -99,7 +99,7 @@ module.exports = class UsersController{
 		   
 		   
 	    
-		var myModelMasterPromise = ModelMaster.selectSpecific(TableName,ColumnName,value_); 
+		var myModelMasterPromise = ModelMaster.selectSpecific(TableName,SearchColumn,SearchValue); 
 		   
 		   
 		myModelMasterPromise.then(function(userExistsResult) {
@@ -139,6 +139,7 @@ module.exports = class UsersController{
 				
 				  //loginResponse.push(response_object);
 				  resolve(response_object);
+				  
 				
 			     }
 			
