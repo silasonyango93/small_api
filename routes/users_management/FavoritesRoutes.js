@@ -31,11 +31,11 @@ router.use(function timeLog(req, res, next) {
          
 		    
 			UserId:request.body.UserId,
-			Name:request.body.Name,
-			Height:request.body.Height,
-			Mass:request.body.Mass,
-			Gender:request.body.Gender,
-			Url:request.body.Url
+			name:request.body.name,
+			height:request.body.height,
+			mass:request.body.mass,
+			gender:request.body.gender,
+			url:request.body.url
 			
 						   
 		 
@@ -89,11 +89,11 @@ router.use(function timeLog(req, res, next) {
     var	jsonObject_ = {
          
 		    UserId:request.body.UserId,
-			Name:request.body.Name,
-			Height:request.body.Height,
-			Mass:request.body.Mass,
-			Gender:request.body.Gender,
-			Url:request.body.Url
+			name:request.body.name,
+			height:request.body.height,
+			mass:request.body.mass,
+			gender:request.body.gender,
+			url:request.body.url
 		
       
         };
@@ -122,7 +122,7 @@ router.use(function timeLog(req, res, next) {
         var mKey=request.body.column_name;
         //var mValue=parseInt(request.query.search_value, 10);
         var mValue=request.body.search_value;
-   
+       
         
 
 
@@ -130,8 +130,8 @@ router.use(function timeLog(req, res, next) {
 	        
 		   
 		   myFavoritesControllerObjectPromise.then(function(result) {
-        
-           response.send(result);
+           var response_object={results:result}
+           response.send(response_object);
            }, function(err) {
            response.send("An error occurred");
 			   console.log(err);
@@ -155,11 +155,11 @@ router.use(function timeLog(req, res, next) {
           var	jsonObject_ = {
          
 		          UserId:request.body.UserId,
-			      Name:request.body.Name,
-			      Height:request.body.Height,
-			      Mass:request.body.Mass,
-			      Gender:request.body.Gender,
-			      Url:request.body.Url
+			name:request.body.name,
+			height:request.body.height,
+			mass:request.body.mass,
+			gender:request.body.gender,
+			url:request.body.url
 		
       
            };
