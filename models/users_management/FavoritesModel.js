@@ -126,12 +126,12 @@ module.exports = class FavoritesModel{
 	
 	
 	
-   static delete_my_favorites_record(ColumnName,value_){
+   static delete_my_favorites_record(ColumnName,value_,UserIdColumnName,user_id_value){
 	   return new Promise(function(resolve, reject) {
         
 
         
-		var myModelMasterPromise = ModelMaster.delete(TableName,ColumnName,value_);
+		var myModelMasterPromise = ModelMaster.delete(TableName,ColumnName,value_,UserIdColumnName,user_id_value);
 		   myModelMasterPromise.then(function(result) {
         
            resolve(result);
@@ -139,7 +139,24 @@ module.exports = class FavoritesModel{
            reject(err);
            })
      })
-    }		
+    }	
+	
+	
+	
+  static get_number_of_records(ColumnName,value_){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myModelMasterPromise = ModelMaster.get_number_of_records(TableName,ColumnName,value_);
+		   myModelMasterPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }	
 	
 	
 	

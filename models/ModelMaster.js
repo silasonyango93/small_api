@@ -190,12 +190,12 @@ delete() deletes a specific record(s).
 
 */	
 	
-	static delete(tableName,ColumnName,value_) {
+	static delete(tableName,ColumnName,value_,UserIdColumnName,user_id_value) {
 		
 		
 		return new Promise(function(resolve, reject) {
     	
-		var selectSpecificPromise = ModelMaster.selectSpecific(tableName,ColumnName,value_);
+		var selectSpecificPromise = ModelMaster.selectUserSpecific(tableName,ColumnName,value_,UserIdColumnName,user_id_value);
 		  
 		selectSpecificPromise.then(function(result) {
         
@@ -207,7 +207,7 @@ delete() deletes a specific record(s).
 				resolve(returned_value_);
 			}else{
 			
-			con.query('DELETE FROM ' + tableName + ' WHERE '+ColumnName+' = '+ mysql.escape(value_), function (err, result) {
+			con.query('DELETE FROM ' + tableName + ' WHERE '+ColumnName+' = '+ mysql.escape(value_)+' AND '+UserIdColumnName+' = '+ mysql.escape(user_id_value), function (err, result) {
             if (err){reject(err);}
             
 			var returned_value_="Record Succesfully Deleted";
@@ -303,9 +303,49 @@ batch_program() is a special function that handles batch jobs.
      });
 
 	})
-   }	
+   }
 	
 	
+   
+	
+	
+	static selectUserSpecific(tableName,ColumnName,value_,UserIdColumnName,user_id_value) {
+
+     return new Promise(function(resolve, reject) {
+        var sql = 'SELECT * FROM '+tableName+' WHERE '+ColumnName+' = '+ mysql.escape(value_)+' AND '+UserIdColumnName+' = '+ mysql.escape(user_id_value);
+        con.query(sql, function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        var returned_value_=result;
+                        resolve(returned_value_);
+                    }
+
+        });
+		 
+	})
+
+
+    }
+	
+	
+	
+	static get_number_of_records(tableName,ColumnName,value_) {
+
+     return new Promise(function(resolve, reject) {
+        var sql = 'SELECT COUNT(*) AS NumberOfRecords FROM '+tableName+' WHERE '+ColumnName+' = '+ mysql.escape(value_);
+        con.query(sql, function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        var returned_value_=result;
+                        resolve(returned_value_);
+                    }
+
+        });
+		 
+	})
+
+
+    }
 	
 
 }

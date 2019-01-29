@@ -188,9 +188,13 @@ router.use(function timeLog(req, res, next) {
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
     var value_=request.body.search_value;
+	   
+	var UserIdColumnName=request.body.UserIdColumnName;
+	   
+	var user_id_value=request.body.user_id_value;
 	
     
-    var myFavoritesControllerObjectPromise = FavoritesController.delete_my_favorites_record(column_name,value_);
+    var myFavoritesControllerObjectPromise = FavoritesController.delete_my_favorites_record(column_name,value_,UserIdColumnName,user_id_value);
 	      	        
 		   
 		   myFavoritesControllerObjectPromise.then(function(result) {
@@ -202,6 +206,35 @@ router.use(function timeLog(req, res, next) {
            })
 
    });
+
+
+
+
+router.post('/get_number_of_records',urlencodedParser,function(request,response){
+	
+    var column_name=request.body.column_name;
+    //var mValue=parseInt(request.body.search_value, 10);
+    var value_=request.body.search_value;
+	
+	
+    
+    var myFavoritesControllerObjectPromise = FavoritesController.get_number_of_records(column_name,value_);
+	      	        
+		   
+		   myFavoritesControllerObjectPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
+
+
+
+
  
  
 module.exports = router;

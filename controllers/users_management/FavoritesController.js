@@ -118,11 +118,11 @@ module.exports = class FavoritesController{
 	
 	
 	
-   static delete_my_favorites_record(ColumnName,value_){
+   static delete_my_favorites_record(ColumnName,value_,UserIdColumnName,user_id_value){
 	   return new Promise(function(resolve, reject) { 
         
         
-		var myFavoritesObjectPromise = FavoritesModel.delete_my_favorites_record(ColumnName,value_);
+		var myFavoritesObjectPromise = FavoritesModel.delete_my_favorites_record(ColumnName,value_,UserIdColumnName,user_id_value);
 		    
 		   
 		   myFavoritesObjectPromise.then(function(result) {
@@ -136,7 +136,25 @@ module.exports = class FavoritesController{
     }		
 	
 	
-		
+
+static get_number_of_records(ColumnName,value_){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myFavoritesObjectPromise = FavoritesModel.get_number_of_records(ColumnName,value_);
+		    
+		   
+		   myFavoritesObjectPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }	
+	
+	
 	
 	
 }
