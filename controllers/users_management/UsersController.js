@@ -95,7 +95,7 @@ module.exports = class UsersController{
 	     
 		 var TableName="users";
 		 var SearchColumn="UserName";
-		 var SearchValue="silas";
+		 var SearchValue=jsonObject_.AttemptedUserName;
 		   
 		   
 	    
