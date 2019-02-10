@@ -26,6 +26,7 @@ app.use(cors());
     }
 
 
+
 app.use(express.static('public'));
 
 var con;
